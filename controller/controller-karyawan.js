@@ -1,0 +1,33 @@
+const config = require('../configs/database');
+const mysql = require('mysql');
+const pool = mysql.createPool(config);
+
+pool.on('error', (err) => {
+  console.error(err);
+});
+
+module.exports = {
+  addDataKaryawan(req, res) {
+    let data = {
+      karyawan_nama: req.body.nama,
+      karyawan_umur: req.body.umur,
+      karyawan_alamat: req.body.alamat,
+      karyawan_jabatan: req.body.jabatan,
+    };
+    pool.getConnection(function (err, connection) {
+      if (err) throw err;
+      connection.query(
+        `INSERT INTO table_karyawan SET ?`,
+        [data],
+        function (error, results) {
+          if (error) throw error;
+          res.send({
+            success: true,
+            message: 'success adding data karyawan!',
+          });
+        }
+      );
+      connection.release();
+    });
+  },
+};

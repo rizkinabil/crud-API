@@ -1,0 +1,26 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "rest-API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizkinabil/crud-API.git"
+  },
+  "author": "rizki nabil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizkinabil/crud-API/issues"
+  },
+  "homepage": "https://github.com/rizkinabil/crud-API#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
